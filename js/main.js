@@ -20,6 +20,7 @@ function moForm(chedo) {
         nutguiform.innerText ="Đăng ký";
     }
     else if (chedo === "sua-info"){
+        const userCu = JSON.parse(localStorage.getItem("userHienTai"));
         if (userCu){
             document.getElementById("nhap-ten").value = userCu.ten;
             document.getElementById("nhap-user").value = userCu.user;
@@ -108,3 +109,50 @@ formtaikhoan.onsubmit = function(e) {
     capNhatgiaodienUser();
 };
 capNhatgiaodienUser();
+//phần lọc tìm kiếm sản phẩm trang products
+ 
+const oTimKiem = document.getElementById("o-tim-kiem");
+
+function locDanhMuc(loaiCanLoc, nutDuocBam) {
+    const tatCaNut = document.querySelectorAll(".nut-loc");
+    const nutTatca = tatCaNut[0];
+    const dangChonChinhNo = nutDuocBam.classList.contains("dang-chon") && loaiCanLoc != "tat-ca";
+    tatCaNut.forEach(nut => nut.classList.remove("dang-chon"));
+    if (dangChonChinhNo)
+    {
+        nutTatca.classList.add("dang-chon");
+        loaiCanLoc = "tat-ca";
+    }
+    else 
+    {
+        nutDuocBam.classList.add("dang-chon");
+    }
+    const tatCaSp = document.querySelectorAll("#danh-sach-sp .o-sp");
+    tatCaSp.forEach(sp => {
+        const loaiCuaSp = sp.getAttribute("data-loai");
+        if(loaiCanLoc === "tat-ca" || loaiCuaSp === loaiCanLoc){
+            sp.style.display = "block";
+        }
+        else {
+            sp.style.display = "none";
+        }
+    });
+}
+//phần lọc tim kiếm sp
+if (oTimKiem){
+    oTimKiem.oninput = function()
+    {
+        const tuKhoa = oTimKiem.value.toLowerCase().trim();
+        const tatCaSp = document.querySelectorAll("#danh-sach-sp .o-sp");
+
+        tatCaSp.forEach(sp => {
+            const tenSp = sp.querySelector("h3").innerText.toLocaleLowerCase();
+            if (tenSp.includes(tuKhoa)){
+                sp.style.display = "block";
+            }
+            else{
+                sp.style.display = "none";
+            }
+        });
+    };
+}

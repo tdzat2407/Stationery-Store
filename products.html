@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm - CalmPage</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="thanh-tren" class="header-trang-con">
+        <div class="ten-shop">CalmPage</div>
+        <!--cụm điều hướng viên thuốc-->
+        <div class="cum-menu">
+            <a href="index.html" title="Trang chủ">🏠</a>
+            <a href="products.html" title="Sản phẩm">📦</a>
+            <a href="about.html" title="Giới thiệu">📄</a>
+            <div class="hop-tai-khoan">
+                <span class="tai-khoan" id="ten-hien-thi">👤 Xin chào ▾</span>
+                <div class="menu-xo-xuong" id="menu-user">
+                    <a href='#' onclick="moForm('dang-nhap'); return false;">Đăng nhập</a>
+                    <a href='#' onclick="moForm('dang-ky'); return false;">Đăng ký</a>
+                </div>
+            </div>
+            <a href="#" class="gio-hang">🛒</a>
+        </div>
+    </header>
+
+<!--nhóm nút lọc sp-->
+    <main id="trang-san-pham">
+        <h1 class="tieu-de-trang">Tất cả sản phẩm</h1>
+        <div class="bo-loc-sp">
+            <input type="text" id="o-tim-kiem" placeholder="🔍 Tìm tên vở, bút, sách,....">
+            <div class="nhom-nut-loc">
+                <button class="nut-loc dang-chon" onclick="locDanhMuc('tat-ca', this)">Tất cả</button>
+                <button class="nut-loc" onclick="locDanhMuc('campus', this)">Campus</button>
+                <button class="nut-loc" onclick="locDanhMuc('deli', this)">Deli</button>
+                <button class="nut-loc" onclick="locDanhMuc('suutam',this)">Sưu tầm</button>
+                <button class="nut-loc" onclick="locDanhMuc('sach', this)">Sách văn học</button>
+            </div>
+        </div>
+    
+
+<!--them sp o khu vuc nay-->
+    <div class="luoi-tat-ca-sp" id="danh-sach-sp">
+        <div class="o-sp" data-loai="campus">
+            <img src="img/campus/vo-campu-mua-he.png" alt="Vở Campus mùa hè">
+            <h3>Vở Campus mùa hè</h3>
+            <p class="gia">15.000đ</p>
+            <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+        </div>
+    </div>
+
+<!--o tren la khu vuc them sp-->
+    </main>
+
+    <footer id="chan-trang">
+        <p><b>CalmPage</b> - Góc văn phòng phẩm và sách chọn lọc</p>
+        <p>Địa chỉ: TP. Hồ Chí Minh | Liên hệ : contact@calmpage.vn</p>
+   </footer>
+    <div id="hop-thoai-auth" class="lop-phu-modal">
+       <div class="khung-form">
+           <span id="nut-dong-modal" class="nut-dong">&times;</span>
+           <h2 id="tieu-de-form">Đăng nhập</h2>
+           
+           <form id="form-tai-khoan">
+               <div class="nhom-nhap" id="nhom-ten" style="display: none;">
+                   <label>Tên hiển thị:</label>
+                   <input type="text" id="nhap-ten" placeholder="VD: Tấn Đạt">
+               </div>
+
+               <div class="nhom-nhap">
+                   <label>Tên đăng nhập:</label>
+                   <input type="text" id="nhap-user" required placeholder="Nhập tài khoản...">
+               </div>
+
+               <div class="nhom-nhap">
+                   <label>Mật khẩu:</label>
+                   <input type="password" id="nhap-pass" required placeholder="Nhập mật khẩu...">
+               </div>
+
+               <button type="submit" class="nut-xac-nhan" id="nut-gui-form">Đăng nhập</button>
+           </form>
+       </div>
+   </div>
+
+   <script src="js/main.js"></script>  
+</body>
+</html>

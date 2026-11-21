@@ -428,3 +428,88 @@ body{
     font-size: 15px;
     margin-top: 5px;
 }
+/*Trang sản phẩm */
+.header-trang-con {
+    padding : 20px 40px;
+    background-color: var(--off-white);
+    border-bottom: 1px solid #dce7e7;
+}
+#trang-san-pham {
+    max-width: 1200px;
+    margin : 40px auto;
+    padding: 0 30px;
+}
+.tieu-de-trang {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--xanh-dam);
+}
+
+.bo-loc-sp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    background-color: var(--off-white);
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 1px solid #e2ecec;
+}
+#o-tim-kiem{
+    padding: 10px 15px;
+    width: 280px;
+    border: 1px solid #cbdada;
+    border-radius: 20px;
+    outline: none;
+}
+#o-tim-kiem:focus{
+    border-color: var(--xanh-bac-ha);
+}
+.nhom-nut-loc{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.nut-loc{
+    padding : 8px 18px;
+    border: 1px solid #cbdada;
+    background-color: var(--off-white);
+    color: var(--xanh-dam);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s;
+}
+.nut-loc:hover {
+    background-color: var(--xanh-bac-ha);
+}
+.nut-loc.dang-chon {
+    background-color: var(--xanh-pastel);
+    border-color: var(--xanh-pastel);
+    color: #1f2d2d;
+    box-shadow: 0 2px 8px rgab (110, 226, 184, 0.4);
+}
+
+.luoi-tat-ca-sp {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.nut-them-gio {
+    margin-top: 10px;
+    padding: 7px 14px;
+    background-color: #eaf7f2;
+    color: #2b7a62;
+    border: 1px solid var(--xanh-pastel);
+    border-radius: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.nut-them-gio:hover {
+    background-color: var(--xanh-pastel);
+    color: #1f2d2d;
+}
