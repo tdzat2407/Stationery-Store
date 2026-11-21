@@ -95,10 +95,10 @@
                 <a href="products.html" title="Sản phẩm">📦</a>
                 <a href="about.html" title="Giới thiệu">📄</a>
                 <div class="hop-tai-khoan">
-                    <span class="tai-khoan">👤 Xin chào ▾</span>
-                    <div class="menu-xo-xuong">
-                        <a href='#'>Đăng nhập</a>
-                        <a href='#'>Đăng ký</a>
+                    <span class="tai-khoan" id="ten-hien-thi">👤 Xin chào ▾</span>
+                    <div class="menu-xo-xuong" id="menu-user">
+                        <a href='#' onclick="moForm('dang-nhap'); return false;">Đăng nhập</a>
+                        <a href='#' onclick="moForm('dang-ky'); return false;s">Đăng ký</a>
                     </div>
                 </div>
                 <a href="#" class="gio-hang">🛒</a>
@@ -206,5 +206,36 @@
         <p><b>CalmPage</b> - Góc văn phòng phẩm và sách chọn lọc</p>
         <p>Địa chỉ: TP. Hồ Chí Minh | Liên hệ : contact@calmpage.vn</p>
    </footer>
+
+
+   <!-- popup đn đk -->
+   <div id="hop-thoai-auth" class="lop-phu-modal">
+       <div class="khung-form">
+           <span id="nut-dong-modal" class="nut-dong">&times;</span>
+           <h2 id="tieu-de-form">Đăng nhập</h2>
+           
+           <form id="form-tai-khoan">
+               <div class="nhom-nhap" id="nhom-ten" style="display: none;">
+                   <label>Tên hiển thị:</label>
+                   <input type="text" id="nhap-ten" placeholder="VD: Tấn Đạt">
+               </div>
+
+               <div class="nhom-nhap">
+                   <label>Tên đăng nhập:</label>
+                   <input type="text" id="nhap-user" required placeholder="Nhập tài khoản...">
+               </div>
+
+               <div class="nhom-nhap">
+                   <label>Mật khẩu:</label>
+                   <input type="password" id="nhap-pass" required placeholder="Nhập mật khẩu...">
+               </div>
+
+               <button type="submit" class="nut-xac-nhan" id="nut-gui-form">Đăng nhập</button>
+           </form>
+       </div>
+   </div>
+
+   <script src="js/main.js"></script>
+</body>
 </body>
 </html>

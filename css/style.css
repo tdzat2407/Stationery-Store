@@ -3,6 +3,20 @@
     --xanh-nhat: #bdd7d8;
     --xanh-dam: #3b4a4a;
     --nen-trang: #f7fafa;
+    --mau-baby-blue: #dceff7;
+    --xanh-phan: #C9E4F5;
+    --xanh-bac-ha:#D5F0EC;
+    --xanh-xo-thom: #DCEBD8;
+    --tim-oai-huong: #E4DDF5;
+    --tim-tu-dinh-huong :#E8E1F0;
+    --xam-lanh: #D9E2EA;
+    --xanh-tim-nhat: #DCE5F3;
+    --xanh-lo-nhat : #D9E8E8;
+    --cam-dao : #F6D6C9;
+    --vang-bo : #F5E6B8 ;
+    --cay-xo-thom : #9caf88;
+    --off-white: #f7f5ef;
+    --do-ca-chua :  #eb412c;
 }
 *{
     margin : 0;
@@ -12,7 +26,7 @@
     scroll-behavior: smooth;/*lam viec cuon tro nen muot ma*/
 }
 body{
-    background-color: var(--nen-trang);
+    background-color: var(--cay-xo-thom);
     color : var(--xanh-dam);
 }
 /*phần hiện đầu tiên khi vào web */
@@ -60,7 +74,7 @@ body{
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(59, 74, 74, 0.85);
+    background-color: var(--tim-tu-dinh-huong);
     color: #FFFFFF;
     font-size: 13px;
     padding: 6px 10px;
@@ -91,24 +105,27 @@ body{
     z-index: 2;
     text-align: center;
     margin: auto;
-    pointer-events: none; /* Giúp chuột rê xuyên qua vùng này để chạm vào ô ảnh bên dưới */
+    pointer-events: none; 
 }
 
 /* Bật lại khả năng bấm chuột cho riêng nút Shop now */
 .nut-shop-now {
     pointer-events: auto;
-    /* (Giữ nguyên các thuộc tính cũ của .nut-shop-now ở dưới đây) */
+
     display: inline-block;
     text-decoration: none;
-    color: var(--xanh-dam);
-    background-color: rgba(255, 255, 255, 0.85);
+    color: var(--cam-dao);
+    background-color: var(--nen-trang);
     font-weight: bold;
     padding: 10px 28px;
-    border: 2px solid var(--xanh-dam);
+    border: 2px solid var(--cam-dao);
     border-radius: 25px;
     transition: 0.3s;
 }
-
+.nut-shop-now:hover {
+    background-color: var(--cam-dao);
+    color: #FFFFFF;
+}
 /* Header trên cùng */
 #thanh-tren {
     display: flex;
@@ -139,7 +156,7 @@ body{
 .menu-xo-xuong {
     display: none;
     position: absolute;
-    top: 100%; /* Nằm ngay sát dưới chữ Xin chào */
+    top: 100%; 
     right: 0;
     background-color: #FFFFFF;
     min-width: 145px;
@@ -147,7 +164,7 @@ body{
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     border: 1px solid #DCE7E7;
     overflow: hidden;
-    z-index: 999; /* Đảm bảo luôn nổi trên cùng */
+    z-index: 999; /*sẽ đc nằm ở trên cùng*/
 }
 
 /* Từng dòng Đăng nhập / Đăng ký */
@@ -161,17 +178,17 @@ body{
 }
 
 .menu-xo-xuong a:hover {
-    background-color: #EAF7F2; /* Đổi sang màu xanh pastel rất nhạt khi rê chuột */
+    background-color: #EAF7F2;
     color: #2B7A62;
 }
 
-/* Rê chuột vào .hop-tai-khoan thì hiện .menu-xo-xuong */
+/* Rê chuột vào .hop-tai-khoan sẽ hiện .menu-xo-xuong */
 .hop-tai-khoan:hover .menu-xo-xuong {
     display: block;
 }
 /* Thanh menu viên thuốc góc phải */
 .cum-menu {
-    background-color: var(--xanh-pastel);
+    background-color: var(--xanh-xo-thom);
     padding: 8px 18px;
     border-radius: 30px;
     display: flex;
@@ -200,10 +217,10 @@ body{
 /* Slogan & nút Shop now ở giữa */
 .noi-dung-chinh {
     position: relative;
-    z-index: 10; /* Đẩy nổi hẳn lên trên #luoi-nen */
+    z-index: 10; 
     text-align: center;
     margin: auto;
-    pointer-events: none; /* Chuột vẫn rê xuyên qua để sáng ảnh bên dưới */
+    pointer-events: none; 
 }
 .noi-dung-chinh h1 {
     font-family: 'Dancing Script' , cursive;
@@ -213,29 +230,12 @@ body{
     color: #2C3A3A;
     text-shadow: 0 0 12px #FFFFFF, 0 0 24px #FFFFFF, 0 2px 6px rgba(255, 255, 255, 0.9);
 }
-
-.nut-shop-now {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--xanh-dam);
-    font-weight: bold;
-    padding: 10px 28px;
-    border: 2px solid var(--xanh-dam);
-    border-radius: 25px;
-    transition: 0.3s;
-}
-
-.nut-shop-now:hover {
-    background-color: var(--xanh-dam);
-    color: #FFFFFF;
-}
-
 /* Nút mũi tên tròn đi xuống */
 .nut-xuong {
-    width: 40px;
-    height: 40px;
-    background-color: var(--xanh-pastel);
-    color: #FFFFFF;
+    width: 55px;
+    height: 55px;
+    background-color: var(--xanh-xo-thom);
+    color: black;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -243,14 +243,20 @@ body{
     text-decoration: none;
     font-weight: bold;
     margin: 0 auto;
-    transition: transform 0.3s;
+    animation-name: bounce;
+    animation: bounce 1s ease-in-out infinite;
+}
+@keyframes bounce{
+    50% {transform: translateY(-10px);}
 }
 
 .nut-xuong:hover {
     transform: translateY(4px);
 }
 
-/* --- THANH NHÃN HÀNG CHẠY NGANG & GHIM DÍNH --- */
+
+
+/* --- THANH NHÃN HÀNG  --- */
 #thanh-nhan-hang {
     height: 45px;
     background-color: #FFFFFF;
@@ -259,7 +265,7 @@ body{
     overflow: hidden;
     display: flex;
     align-items: center;
-    /* Lướt xuống sẽ tự động dính lên mép trên màn hình */
+    /* Lướt xuống thanh nhãn hàng sẽ dính lên mép trên màn hình */
     position: sticky;
     top: 0;
     z-index: 100;
@@ -282,13 +288,13 @@ body{
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
-
+/*kt phần thah chyaj nhãn hàng */
 
 /*kết thúc màn chính */
 
 
 
-/* --- MÀN HÌNH 2: DEAL SỐC & BẠN SẼ THÍCH --- */
+/* -- khi kéo xuống sẽ có màn hình 2 : deal sốc và có lẽ bạn sẽ thích --- */
 #phan-noi-dung {
     max-width: 1200px;
     margin: 50px auto;
@@ -304,16 +310,16 @@ body{
     margin-bottom: 20px;
 }
 
-/* Chia đúng 5 cột ngang như hình vẽ */
+/* Hàng ngang 5 sản phẩm có lẽ bạn sẽ thích và deal sốc */
 .hang-5-sp {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    gap: 55px;
 }
 
 .o-sp {
-    background-color: #FFFFFF;
-    border: 1px solid #E2ECEC;
+    background-color: var(--off-white);
+    border: 1px solid var(--off-white);
     border-radius: 8px;
     padding: 12px;
     text-align: center;
@@ -344,11 +350,81 @@ body{
     font-size: 14px;
 }
 
-/* --- FOOTER --- */
+/* --phần chân trang-- */
 #chan-trang {
     background-color: #FFFFFF;
     border-top: 1px solid #DCE7E7;
     text-align: center;
     padding: 35px 20px;
     line-height: 1.8;
+}
+/*kết thúc trang sau */
+
+
+/* --- POPUP ĐĂNG NHẬP / ĐĂNG KÝ --- */
+.lop-phu-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.khung-form {
+    background-color: #FFFFFF;
+    width: 360px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.nut-dong {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+    z-index: 10;
+}
+
+#tieu-de-form {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--xanh-dam);
+}
+
+.nhom-nhap {
+    margin-bottom: 15px;
+}
+
+.nhom-nhap label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.nhom-nhap input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #CBDADA;
+    border-radius: 8px;
+    outline: none;
+}
+
+.nut-xac-nhan {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--xanh-pastel);
+    color: var(--xanh-dam);
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 5px;
 }
