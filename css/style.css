@@ -503,6 +503,7 @@ body{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 22px;
+    margin-top : 25px;
 }
 
 .nut-them-gio {
