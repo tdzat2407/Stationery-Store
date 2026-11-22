@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | CalmPage</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Dancing+Script:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+<section id="contact-us">
+    <header id="thanh-tren">
+            <div class="ten-shop">CalmPage</div>
+            <!--cụm điều hướng viên thuốc-->
+            <div class="cum-menu">
+                <a href="index.html" title="Trang chủ">🏠</a>
+                <a href="products.html" title="Sản phẩm">📦</a>
+                <a href="about.html" title="Giới thiệu">📄</a>
+                <div class="hop-tai-khoan">
+                    <span class="tai-khoan" id="ten-hien-thi">👤 Xin chào ▾</span>
+                    <div class="menu-xo-xuong" id="menu-user">
+                        <a href='#' onclick="moForm('dang-nhap'); return false;">Đăng nhập</a>
+                        <a href='#' onclick="moForm('dang-ky'); return false;s">Đăng ký</a>
+                    </div>
+                </div>
+                <a href="#" class="gio-hang">🛒</a>
+            </div>
+        </header>
+        <div class="noi-dung-chinh">
+            <h1>Contact Us</h1>
+        </div>
+</section>
+
+<section id="phan-noi-dung">
+  <div class="contact-container">
+    <div class="contact-main">
+      <p class="contact-intro">
+        CalmPage luôn hoạt động 24/7, cùng với đội ngũ chăm sóc khách hàng đáng tin cậy luôn đặt khách hàng lên hàng đầu
+      </p>
+      <p class="contact-subintro">
+        Mọi thắc mắc đều có thể được giải đáp thông qua hộp thư hoặc được gửi trực tiếp đến
+        <a href="mailto:contact@calmpage.vn">contact@calmpage.vn</a>
+      </p>
+
+      <form class="contact-form" action="#" method="post">
+        <div class="form-row">
+          <input type="text" name="Tên" placeholder="Họ tên*" aria-label="Tên" required />
+          <input type="email" name="email" placeholder="Email*" aria-label="Email" required />
+        </div>
+
+        <textarea name="message" placeholder="Nhập nội dung*" aria-label="Message" rows="6" required></textarea>
+
+        <label class="save-info-label">
+          <input type="checkbox" name="save_info" />
+          <span>Qúy khách có muốn lưu lại những thông tin này cho lần sau không?</span>
+        </label>
+
+        <button type="submit" class="submit-btn">GỬI</button>
+      </form>
+    </div>
+
+    <aside class="contact-infos">
+      <div class="infos">
+        <h3>Thông tin liên hệ</h3>
+        <a href="mailto:contact@calmpage.vn" class="info-email">contact@calmpage.vn</a>
+      </div>
+
+      <div class="infos">
+        <h3>Social Media</h3>
+        <div class="socials">
+          <a href="https://github.com/tdzat2407/Stationery-Store" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <img src="img/icons/GitHub_Invertocat_White.png" alt="GitHub" width="18" height="18" />
+          </a>
+        </div>
+      </div>
+
+      <div class="infos">
+            <h3>Địa chỉ</h3>
+            <p>280 An Dương Vương, Phường Chợ Quán, TP. Hồ Chí Minh</p> <br>
+            <div class="map-embed-wrap">
+                <iframe
+                    src="https://maps.google.com/maps?q=280%20An%20Duong%20Vuong%2C%20Phuong%20Cho%20Quan%2C%20Ho%20Chi%20Minh%20City&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Map"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </aside>
+  </div>
+</section>
+
+   <div id="hop-thoai-auth" class="lop-phu-modal">
+       <div class="khung-form">
+           <span id="nut-dong-modal" class="nut-dong">&times;</span>
+           <h2 id="tieu-de-form">Đăng nhập</h2>
+           
+           <form id="form-tai-khoan">
+               <div class="nhom-nhap" id="nhom-ten" style="display: none;">
+                   <label>Tên hiển thị:</label>
+                   <input type="text" id="nhap-ten" placeholder="VD: Tấn Đạt">
+               </div>
+
+               <div class="nhom-nhap">
+                   <label>Tên đăng nhập:</label>
+                   <input type="text" id="nhap-user" required placeholder="Nhập tài khoản...">
+               </div>
+
+               <div class="nhom-nhap">
+                   <label>Mật khẩu:</label>
+                   <input type="password" id="nhap-pass" required placeholder="Nhập mật khẩu...">
+               </div>
+
+               <button type="submit" class="nut-xac-nhan" id="nut-gui-form">Đăng nhập</button>
+           </form>
+       </div>
+   </div>
+
+   
+<footer id="chan-trang">
+            <p><b>CalmPage</b> - Góc văn phòng phẩm và sách chọn lọc</p>
+        <p>Địa chỉ: 280 An Dương Vương, Phường Chợ Quán, TP. Hồ Chí Minh</p>
+</footer>
+</body>
+
+</html>
