@@ -445,6 +445,7 @@ body{
     max-width: 1200px;
     margin : 40px auto;
     padding: 0 30px;
+    width: 100%;
 }
 .tieu-de-trang {
     text-align: center;
@@ -499,11 +500,31 @@ body{
     box-shadow: 0 2px 8px rgab (110, 226, 184, 0.4);
 }
 
-.luoi-tat-ca-sp {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-    margin-top : 25px;
+#danh-sach-sp.luoi-tat-ca-sp {
+    display: grid ;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) ;
+    gap: 24px ;
+    margin-top: 25px ;
+    width: 100% !;
+}
+
+/* Thẻ sản phẩm co giãn chuẩn, căn nút bấm thẳng hàng dưới đáy */
+#danh-sach-sp .o-sp {
+    width: 100% ;
+    box-sizing: border-box ;
+    margin: 0 ;
+    display: flex ;
+    flex-direction: column ;
+    justify-content: space-between ;
+}
+
+/* Cố định chiều cao ảnh để ảnh ngang/dọc không làm méo thẻ */
+#danh-sach-sp .o-sp img {
+    width: 100%;
+    height: 200px ;
+    object-fit: contain ;
+    background-color: #fff;
+    border-radius: 12px ;
 }
 
 .nut-them-gio {
@@ -522,6 +543,8 @@ body{
     color: #1f2d2d;
 }
 
+
+/*trang contact */
 #contact-us {
     height : calc(25 - 25);
     display: flex;
