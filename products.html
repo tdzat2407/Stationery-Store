@@ -14,6 +14,7 @@
             <a href="index.html" title="Trang chủ">🏠</a>
             <a href="products.html" title="Sản phẩm">📦</a>
             <a href="about.html" title="Giới thiệu">📄</a>
+            <a href="contact.html" title="Liên hệ">📩</a>
             <div class="hop-tai-khoan">
                 <span class="tai-khoan" id="ten-hien-thi">👤 Xin chào ▾</span>
                 <div class="menu-xo-xuong" id="menu-user">
@@ -34,8 +35,11 @@
                 <button class="nut-loc dang-chon" onclick="locDanhMuc('tat-ca', this)">Tất cả</button>
                 <button class="nut-loc" onclick="locDanhMuc('campus', this)">Campus</button>
                 <button class="nut-loc" onclick="locDanhMuc('deli', this)">Deli</button>
-                <button class="nut-loc" onclick="locDanhMuc('suutam',this)">Sưu tầm</button>
-                <button class="nut-loc" onclick="locDanhMuc('sach', this)">Sách văn học</button>
+                <button class="nut-loc" onclick="locDanhMuc('deli', this)">Muji</button>
+                <button class="nut-loc" onclick="locDanhMuc('deli', this)">Thiên Long</button>
+                <button class="nut-loc" onclick="locDanhMuc('sach',this)">Sách</button>
+                <button class="nut-loc" onclick="locDanhMuc('truyen',this)">Truyện</button>
+                <button class="nut-loc" onclick="locDanhMuc('khac', this)">Khác</button>
             </div>
         </div>
     
@@ -71,13 +75,161 @@
                 <button class="nut-them-gio">Thêm vào giỏ hàng</button>
             </div>
 
-             <div class="o-sp" data-loai="deli">
+            <div class="o-sp" data-loai="deli">
                 <img src="img/deli/thuoc-do-do.png" alt="Thước đo độ">
                 <h3>Thước đo độ Deli</h3>
                 <p class="gia">18.000đ</p>
                 <button class="nut-them-gio">Thêm vào giỏ hàng</button>
             </div>
 
+            <div class="o-sp" data-loai="campus">
+                <img src="img/campus/but-chi-mau.png" alt="Bút chì màu">
+                <h3>Bút chì màu Campus</h3>
+                <p class="gia">52.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="deli">
+                <img src="img/deli/but-bi-xanh.png" alt="Bút bi xanh Deli">
+                <h3>Bút bi xanh Deli</h3>
+                <p class="gia">8.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="campus">
+                <img src="img/campus/nhãn vở.png" alt="Nhãn vở">
+                <h3>Nhãn vở Campus</h3>
+                <p class="gia">12.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="sach">
+                <img src="img/tacphamvanhoc/dat-rung-phuong-nam.jpg" alt="Đất rừng phương Nam">
+                <h3>Sách Đất rừng phương Nam - Đoàn Giỏi</h3>
+                <p class="gia">224.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="khac">
+                <img src="img/suutam/bo-giay-nho-meo-de-thuong.png" alt="Giấy nhớ">
+                <h3>Bộ giấy nhớ, đánh dấu trang hoạt động mèo dễ thương</h3>
+                <p class="gia">34.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="sach">
+                <img src="img/tacphamvanhoc/so-do-tn.png" alt="Số đỏ">
+                <h3>Sách Số Đỏ - Vũ Trọng Phụng</h3>
+                <p class="gia">185.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="campus">
+                <img src="img/campus/campus-limit-winter-pen.png" alt="Bút Campus Winter">
+                <h3>Bút bi Limit Campus Winter</h3>
+                <p class="gia">15.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="deli">
+                <img src="img/deli/got-but-chi-de-thuong.png" alt="Gọt bút chì">
+                <h3>Gọt bút chì cá sấu dễ thương</h3>
+                <p class="gia">8.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="campus">
+                <img src="img/campus/vo-campus-xanh.png" alt="Vở Campus">
+                <h3>Vở Campus chủ đề mùa đông</h3>
+                <p class="gia">18.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="campus">
+                <img src="img/campus/giay-nho.png" alt="Giấy nhớ">
+                <h3>Giấy nhớ Campus - Giấy nhớ dễ tách</h3>
+                <p class="gia">16.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="deli">
+                <img src="img/deli/bia-trinh-ký.png" alt="Bìa trình ký">
+                <h3>Bìa trình ký Deli</h3>
+                <p class="gia">55.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="deli">
+                <img src="img/deli/thuoc-do-do.png" alt="Thước đo độ">
+                <h3>Thước đo độ Deli</h3>
+                <p class="gia">26.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="sach">
+                <img src="img/tacphamvanhoc/mdlnnm-tn.png" alt="Sách Mảnh đất lắm người nhiều ma">
+                <h3>Sách Mảnh đất lắm người nhiều ma - Nguyễn Khắc trường</h3>
+                <p class="gia">213.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="sach">
+                <img src="img/tacphamvanhoc/canh-dong-bat-tan.jpg" alt="Cánh đồng bất tận">
+                <h3>Sách Cánh đồng bất tận - Nguyễn Ngọc Tư</h3>
+                <p class="gia">235.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="campus">
+                <img src="img/campus/vo-campus-3.png" alt="Túi đựng tài liệu">
+                <h3>Túi đựng tài liệu Campus mùa xuân</h3>
+                <p class="gia">55.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="sach">
+                <img src="img/tacphamvanhoc/ngon-den-khong-tat.jpg" alt="Ngọn đèn không tắt">
+                <h3>Sách Ngọn đèn không tắt - Nguyễn Ngọc Tư</h3>
+                <p class="gia">155.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="deli">
+                <img src="img/deli/but-chi.jpg" alt="Bút chì">
+                <h3>Bút chì Deli</h3>
+                <p class="gia">7.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="campus">
+                <img src="img/campus/thuoc.png" alt="Thước kẻ">
+                <h3>Thước kẻ tronng suốt Campus</h3>
+                <p class="gia">12.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="deli">
+                <img src="img/deli/but-gel.jpg" alt="Bút gel deli">
+                <h3>Bút bi nước mực gel bấm EG118 nhiều màu</h3>
+                <p class="gia">8.500đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="campus">
+                <img src="img/campus/vo-campus-2.png" alt="Vở campus">
+                <h3>Vở Campus mùa thu</h3>
+                <p class="gia">15.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            <div class="o-sp" data-loai="deli">
+                <img src="img/deli/kep-buom.jpg" alt="Kẹp giấy ">
+                <h3>Kẹp tài liệu Deli nhiều màu sắc- 40 chiếc</h3>
+                <p class="gia">40.000đ</p>
+                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
+            </div>
+
+            
         </div>
     </main>
 <!--o tren la khu vuc them sp-->
