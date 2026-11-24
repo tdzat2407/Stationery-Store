@@ -30,7 +30,9 @@
                         <a href='#' onclick="moForm('dang-ky'); return false;s">Đăng ký</a>
                     </div>
                 </div>
-                <a href="#" class="gio-hang">🛒</a>
+                <a href="#" class="gio-hang" onclick="moGioHang(); return false;">
+                🛒 <span id="so-luong-gio">0</span>
+                </a>
             </div>
         </header>
         <div class="noi-dung-chinh">
@@ -129,6 +131,26 @@
             <p><b>CalmPage</b> - Góc văn phòng phẩm và sách chọn lọc</p>
         <p>Địa chỉ: 280 An Dương Vương, Phường Chợ Quán, TP. Hồ Chí Minh</p>
 </footer>
+
+<!-- POPUP GIỎ HÀNG -->
+<div class="lop-phu-modal" id="modal-gio-hang" onclick="dongGioHang(event)">
+    <div class="khung-gio-hang">
+        <span class="nut-dong" onclick="dongGioHang(event, true)">&times;</span>
+        <h2 class="tieu-de-gio">🛒 Giỏ hàng của bạn</h2>
+
+        <!-- Danh sách sản phẩm sẽ được JS tự động đổ vào đây -->
+        <div class="danh-sach-gio" id="noi-dung-gio-hang"></div>
+
+        <!-- Khu vực tổng tiền & đặt hàng -->
+        <div class="chan-gio-hang" id="chan-gio-hang">
+            <div class="dong-tong-tien">
+                <span>Tổng cộng:</span>
+                <span id="tong-tien-gio">0đ</span>
+            </div>
+            <button type="button" class="nut-xac-nhan" onclick="datHangCalmPage()">Thanh toán ngay</button>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

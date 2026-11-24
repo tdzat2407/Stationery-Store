@@ -22,7 +22,9 @@
                     <a href='#' onclick="moForm('dang-ky'); return false;">Đăng ký</a>
                 </div>
             </div>
-            <a href="#" class="gio-hang">🛒</a>
+            <a href="#" class="gio-hang" onclick="moGioHang(); return false; ">
+            🛒<span id="so-luong-gio">0</span>
+            </a>
         </div>
     </header>
 
@@ -46,9 +48,11 @@
 <!--them sp o khu vuc nay-->
         <div class="luoi-tat-ca-sp" id="danh-sach-sp">
 
-            <div class="o-sp" data-loai="campus">
+            <div class="o-sp" data-loai="campus" 
+                data-mota="Vở Campus phong cách mùa hè, giấy trắng 70mgs tự nhiên chống lóa, định dang vừa vặn ko thấm mực ra trang sau. Phù hợp ghi chép hằng ngày"
+                data-anh-phu="img/campus/vo-campus.png, img/campus/vo-campus-xanh.png, img/campus/vo-campus-2.png">
                 <img src="img/campus/vo-campu-mua-he.png" alt="Vở Campus mùa hè">
-                <h3>Vở Campus mùa hè</h3>
+                <h3>Vở Campus phong cách các mùa</h3>
                 <p class="gia">15.000đ</p>
                 <button class="nut-them-gio">Thêm vào giỏ hàng</button>
             </div>
@@ -137,10 +141,10 @@
                 <button class="nut-them-gio">Thêm vào giỏ hàng</button>
             </div>
 
-            <div class="o-sp" data-loai="campus">
-                <img src="img/campus/vo-campus-xanh.png" alt="Vở Campus">
-                <h3>Vở Campus chủ đề mùa đông</h3>
-                <p class="gia">18.000đ</p>
+            <div class="o-sp" data-loai="thienlong">
+                <img src="img/thienlong/may-tinh-flexio.png" alt="Máy tính flexio">
+                <h3>Máy tính Flexio Thiên Long nhiều màu sắc</h3>
+                <p class="gia">655.000đ</p>
                 <button class="nut-them-gio">Thêm vào giỏ hàng</button>
             </div>
 
@@ -209,15 +213,8 @@
 
             <div class="o-sp" data-loai="deli">
                 <img src="img/deli/but-gel.jpg" alt="Bút gel deli">
-                <h3>Bút bi nước mực gel bấm EG118 nhiều màu</h3>
-                <p class="gia">8.500đ</p>
-                <button class="nut-them-gio">Thêm vào giỏ hàng</button>
-            </div>
-
-            <div class="o-sp" data-loai="campus">
-                <img src="img/campus/vo-campus-2.png" alt="Vở campus">
-                <h3>Vở Campus mùa thu</h3>
-                <p class="gia">15.000đ</p>
+                <h3>Hộp 24 bút bi nước mực gel bấm EG118 nhiều màu</h3>
+                <p class="gia">186.000đ</p>
                 <button class="nut-them-gio">Thêm vào giỏ hàng</button>
             </div>
 
@@ -375,10 +372,10 @@
                 <button class="nut-them-gio">Thêm vào giỏ hàng</button>
             </div>
 
-            <div class="o-sp" data-loai="campus">
-                <img src="img/campus/vo-campus.png" alt="Vở campus">
-                <h3>Vở Campus phong cách mùa hè</h3>
-                <p class="gia">15.400đ</p>
+            <div class="o-sp" data-loai="muji">
+                <img src="img/muji/ke-dung-ho-so-nhua.png" alt="Kệ đựng hồ sơ">
+                <h3>Kệ đựng hồ sơ nhựa văn phòng Muji</h3>
+                <p class="gia">185.000đ</p>
                 <button class="nut-them-gio">Thêm vào giỏ hàng</button>
             </div>
 
@@ -421,6 +418,54 @@
            </form>
        </div>
    </div>
+
+   <!-- Hộp thoại chi tiết sản phẩm -->
+<div class="lop-phu-modal" id="modal-chi-tiet" onclick="dongChiTietSp(event)">
+    <div class="khung-chi-tiet-sp">
+        <span class="nut-dong" onclick="dongChiTietSp(event, true)">&times;</span>
+        <div class="cot-anh-ct">
+            <img id="ct-anh-chinh" src="" alt="Ảnh sản phẩm">
+            <div class="hang-anh-nho" id="ct-danh-sach-anh"></div>
+        </div>
+        <div class="cot-thong-tin-ct">
+            <span class="nhan-hang-ct" id="ct-hang">Thương hiệu</span>
+            <h2 id="ct-ten">Tên sản phẩm</h2>
+            <p class="gia-ct" id="ct-gia">0đ</p>
+            <p class="mo-ta-ct" id="ct-mota">Mô tả chi tiết sản phẩm...</p>
+            
+            <div class="cum-so-luong">
+                <span>Số lượng:</span>
+                <div class="bo-dem-sl">
+                    <button type="button" onclick="doiSoLuongCt(-1)">-</button>
+                    <input type="number" id="ct-so-luong" value="1" min="1" readonly>
+                    <button type="button" onclick="doiSoLuongCt(1)">+</button>
+                </div>
+            </div>
+
+            <button class="nut-xac-nhan" id="ct-nut-them" onclick="themTuPopupVaoGio()">Thêm vào giỏ hàng</button>
+        </div>
+    </div>
+</div>
+
+<!-- POPUP GIỎ HÀNG -->
+<div class="lop-phu-modal" id="modal-gio-hang" onclick="dongGioHang(event)">
+    <div class="khung-gio-hang">
+        <span class="nut-dong" onclick="dongGioHang(event, true)">&times;</span>
+        <h2 class="tieu-de-gio">🛒 Giỏ hàng của bạn</h2>
+
+        <!-- Danh sách sản phẩm sẽ được JS tự động đổ vào đây -->
+        <div class="danh-sach-gio" id="noi-dung-gio-hang"></div>
+
+        <!-- Khu vực tổng tiền & đặt hàng -->
+        <div class="chan-gio-hang" id="chan-gio-hang">
+            <div class="dong-tong-tien">
+                <span>Tổng cộng:</span>
+                <span id="tong-tien-gio">0đ</span>
+            </div>
+            <button type="button" class="nut-xac-nhan" onclick="datHangCalmPage()">Thanh toán ngay</button>
+        </div>
+    </div>
+</div>
 
    <script src="js/main.js"></script>  
 </body>
