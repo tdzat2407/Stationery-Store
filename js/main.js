@@ -109,52 +109,93 @@ formtaikhoan.onsubmit = function(e) {
     capNhatgiaodienUser();
 };
 capNhatgiaodienUser();
-//phần lọc tìm kiếm sản phẩm trang products
- 
+
+// chia phần products thành pages cho products.html
+const SP_MOI_TRANG = 20;
+let trangHienTai = 1;
+let danhMucHienTai = "tat-ca";
+
 const oTimKiem = document.getElementById("o-tim-kiem");
+
+function sanPhamKhopDieuKien(sp) {
+    const tuKhoa = (oTimKiem ? oTimKiem.value : "").toLowerCase().trim();
+    const loaiCuaSp = sp.getAttribute("data-loai");
+    const tenSp = sp.querySelector("h3").innerText.toLocaleLowerCase();
+
+    const khopDanhMuc = danhMucHienTai === "tat-ca" || loaiCuaSp === danhMucHienTai;
+    const khopTuKhoa = !tuKhoa || tenSp.includes(tuKhoa);
+
+    return khopDanhMuc && khopTuKhoa;
+}
+
+function veNutPhanTrang(tongTrang) {
+    const khungPhanTrang = document.getElementById("product-pages");
+    if (!khungPhanTrang) return;
+
+    khungPhanTrang.innerHTML = "";
+    if (tongTrang <= 1) return;
+
+    for (let i = 1; i <= tongTrang; i++) {
+        const nut = document.createElement("button");
+        nut.type = "button";
+        nut.innerText = i;
+        nut.className = "product-page-button" + (i === trangHienTai ? " current-page" : "");
+        nut.onclick = function () {
+            trangHienTai = i;
+            capNhatHienThiSp(false);
+            document.getElementById("trang-san-pham")?.scrollIntoView({ behavior: "smooth" });
+        };
+        khungPhanTrang.appendChild(nut);
+    }
+}
+
+function capNhatHienThiSp(resetTrang = false) {
+    const khungDanhSach = document.getElementById("danh-sach-sp");
+    if (!khungDanhSach) return;
+
+    if (resetTrang) trangHienTai = 1;
+
+    const tatCaSp = Array.from(khungDanhSach.querySelectorAll("#danh-sach-sp .o-sp"));
+    const spHopLe = tatCaSp.filter(sanPhamKhopDieuKien);
+
+    const tongTrang = Math.max(1, Math.ceil(spHopLe.length / SP_MOI_TRANG));
+    if (trangHienTai > tongTrang) trangHienTai = tongTrang;
+
+    const batDau = (trangHienTai - 1) * SP_MOI_TRANG;
+    const ketThuc = batDau + SP_MOI_TRANG;
+    const spTrangNay = new Set(spHopLe.slice(batDau, ketThuc));
+
+    tatCaSp.forEach((sp) => {
+        sp.style.display = spTrangNay.has(sp) ? "" : "none";
+    });
+
+    veNutPhanTrang(tongTrang);
+}
 
 function locDanhMuc(loaiCanLoc, nutDuocBam) {
     const tatCaNut = document.querySelectorAll(".nut-loc");
     const nutTatca = tatCaNut[0];
     const dangChonChinhNo = nutDuocBam.classList.contains("dang-chon") && loaiCanLoc != "tat-ca";
     tatCaNut.forEach(nut => nut.classList.remove("dang-chon"));
-    if (dangChonChinhNo)
-    {
+    if (dangChonChinhNo) {
         nutTatca.classList.add("dang-chon");
-        loaiCanLoc = "tat-ca";
-    }
-    else 
-    {
+        danhMucHienTai = "tat-ca";
+    } else {
         nutDuocBam.classList.add("dang-chon");
+        danhMucHienTai = loaiCanLoc;
     }
-    const tatCaSp = document.querySelectorAll("#danh-sach-sp .o-sp");
-    tatCaSp.forEach(sp => {
-        const loaiCuaSp = sp.getAttribute("data-loai");
-        if(loaiCanLoc === "tat-ca" || loaiCuaSp === loaiCanLoc){
-            sp.style.display = "block";
-        }
-        else {
-            sp.style.display = "none";
-        }
-    });
+    capNhatHienThiSp(true);
 }
-//phần lọc tim kiếm sp
-if (oTimKiem){
-    oTimKiem.oninput = function()
-    {
-        const tuKhoa = oTimKiem.value.toLowerCase().trim();
-        const tatCaSp = document.querySelectorAll("#danh-sach-sp .o-sp");
 
-        tatCaSp.forEach(sp => {
-            const tenSp = sp.querySelector("h3").innerText.toLocaleLowerCase();
-            if (tenSp.includes(tuKhoa)){
-                sp.style.display = "block";
-            }
-            else{
-                sp.style.display = "none";
-            }
-        });
+// phần lọc tìm kiếm sp
+if (oTimKiem) {
+    oTimKiem.oninput = function () {
+        capNhatHienThiSp(true);
     };
+}
+
+if (document.getElementById("danh-sach-sp")) {
+    capNhatHienThiSp(true);
 }
 
 // HÀM DÙNG CHUNG LƯU SẢN PHẨM VÀO GIỎ HÀNG (LOCALSTORAGE)
