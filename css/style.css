@@ -752,3 +752,168 @@ body{
         grid-template-columns: 1fr;
     }
 }
+#trang-about {
+    max-width: 1200px;
+    margin: 40px auto 60px;
+    padding: 0 30px;
+}
+
+.about-mo-dau {
+    text-align: center;
+    background: var(--off-white);
+    border: 1px solid #e2ecec;
+    border-radius: 18px;
+    padding: 45px 25px;
+    margin-bottom: 28px;
+}
+
+.about-nhan {
+    display: inline-block;
+    color: #3e8e75;
+    background: #e4f4ed;
+    border-radius: 20px;
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.about-mo-dau h1 {
+    font-size: 36px;
+    color: var(--xanh-dam);
+    margin-bottom: 14px;
+}
+
+.about-mo-dau p {
+    max-width: 760px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.about-khu-vuc {
+    background: #fff;
+    border: 1px solid #e2ecec;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+}
+
+.about-tieu-de {
+    font-size: 23px;
+    color: var(--xanh-dam);
+    margin-bottom: 14px;
+}
+
+.about-khu-vuc p {
+    line-height: 1.85;
+    margin-bottom: 10px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.about-the {
+    background: var(--off-white);
+    border: 1px solid #e2ecec;
+    border-radius: 13px;
+    padding: 22px;
+}
+
+.about-bieu-tuong {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.about-the h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+    color: var(--xanh-dam);
+}
+
+.about-the p {
+    margin: 0;
+    line-height: 1.7;
+}
+
+.about-cam-ket {
+    background: #eaf7f2;
+    border: 1px solid #cce9dc;
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.about-cam-ket h2 {
+    margin-bottom: 12px;
+    color: var(--xanh-dam);
+}
+
+.about-cam-ket p {
+    line-height: 1.8;
+    max-width: 800px;
+    margin: auto;
+}
+
+.about-lien-he {
+    text-align: center;
+}
+
+.about-lien-he a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 22px;
+    border-radius: 22px;
+    background: var(--xanh-pastel);
+    color: var(--xanh-dam);
+    text-decoration: none;
+    font-weight: bold;
+    transition: .25s;
+}
+
+.about-lien-he a:hover {
+    background: var(--xanh-dam);
+    color: white;
+}
+
+@media (max-width: 700px) {
+    .header-trang-con {
+        padding: 16px 18px;
+    }
+
+    #thanh-tren {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .cum-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 8px 12px;
+    }
+
+    #trang-about {
+        margin-top: 25px;
+        padding: 0 16px;
+    }
+
+    .about-mo-dau {
+        padding: 32px 18px;
+    }
+
+    .about-mo-dau h1 {
+        font-size: 28px;
+    }
+
+    .about-khu-vuc {
+        padding: 20px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
