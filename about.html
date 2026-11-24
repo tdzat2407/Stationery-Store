@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu - CalmPage</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        #trang-about {
+            max-width: 1200px;
+            margin: 40px auto 60px;
+            padding: 0 30px;
+        }
+
+        .about-mo-dau {
+            text-align: center;
+            background: var(--off-white);
+            border: 1px solid #e2ecec;
+            border-radius: 18px;
+            padding: 45px 25px;
+            margin-bottom: 28px;
+        }
+
+        .about-nhan {
+            display: inline-block;
+            color: #3e8e75;
+            background: #e4f4ed;
+            border-radius: 20px;
+            padding: 7px 16px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 14px;
+        }
+
+        .about-mo-dau h1 {
+            font-size: 36px;
+            color: var(--xanh-dam);
+            margin-bottom: 14px;
+        }
+
+        .about-mo-dau p {
+            max-width: 760px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        .about-khu-vuc {
+            background: #fff;
+            border: 1px solid #e2ecec;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .about-tieu-de {
+            font-size: 23px;
+            color: var(--xanh-dam);
+            margin-bottom: 14px;
+        }
+
+        .about-khu-vuc p {
+            line-height: 1.85;
+            margin-bottom: 10px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .about-the {
+            background: var(--off-white);
+            border: 1px solid #e2ecec;
+            border-radius: 13px;
+            padding: 22px;
+        }
+
+        .about-bieu-tuong {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .about-the h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            color: var(--xanh-dam);
+        }
+
+        .about-the p {
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .about-cam-ket {
+            background: #eaf7f2;
+            border: 1px solid #cce9dc;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .about-cam-ket h2 {
+            margin-bottom: 12px;
+            color: var(--xanh-dam);
+        }
+
+        .about-cam-ket p {
+            line-height: 1.8;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .about-lien-he {
+            text-align: center;
+        }
+
+        .about-lien-he a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 22px;
+            border-radius: 22px;
+            background: var(--xanh-pastel);
+            color: var(--xanh-dam);
+            text-decoration: none;
+            font-weight: bold;
+            transition: .25s;
+        }
+
+        .about-lien-he a:hover {
+            background: var(--xanh-dam);
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+            .header-trang-con {
+                padding: 16px 18px;
+            }
+
+            #thanh-tren {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .cum-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                padding: 8px 12px;
+            }
+
+            #trang-about {
+                margin-top: 25px;
+                padding: 0 16px;
+            }
+
+            .about-mo-dau {
+                padding: 32px 18px;
+            }
+
+            .about-mo-dau h1 {
+                font-size: 28px;
+            }
+
+            .about-khu-vuc {
+                padding: 20px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Thanh menu -->
+    <header id="thanh-tren" class="header-trang-con">
+        <div class="ten-shop">CalmPage</div>
+
+        <div class="cum-menu">
+            <a href="index.html" title="Trang chủ">🏠</a>
+            <a href="products.html" title="Sản phẩm">📦</a>
+            <a href="about.html" title="Giới thiệu">📄</a>
+            <a href="contact.html" title="Liên hệ">📩</a>
+
+            <div class="hop-tai-khoan">
+                <span class="tai-khoan" id="ten-hien-thi">
+                    👤 Xin chào ▾
+                </span>
+
+                <div class="menu-xo-xuong" id="menu-user">
+                    <a href="#" onclick="moForm('dang-nhap'); return false;">
+                        Đăng nhập
+                    </a>
+                    <a href="#" onclick="moForm('dang-ky'); return false;">
+                        Đăng ký
+                    </a>
+                </div>
+            </div>
+
+            <a href="#" class="gio-hang">🛒</a>
+        </div>
+    </header>
+
+    <main id="trang-about">
+
+        <!-- Giới thiệu -->
+        <section class="about-mo-dau">
+            <span class="about-nhan">ABOUT CALMPAGE</span>
+
+            <h1>Chào mừng đến với CalmPage</h1>
+
+            <p>
+                CalmPage là cửa hàng trực tuyến chuyên giới thiệu và cung cấp
+                sách, truyện cùng các sản phẩm văn phòng phẩm.
+                Chúng tôi mong muốn tạo nên một không gian mua sắm thân thiện,
+                nơi bạn có thể tìm thấy những cuốn sách yêu thích và các dụng cụ
+                hữu ích cho học tập, làm việc và sáng tạo.
+            </p>
+        </section>
+
+        <!-- Câu chuyện -->
+        <section class="about-khu-vuc">
+            <h2 class="about-tieu-de">
+                📖 Câu chuyện của chúng tôi
+            </h2>
+
+            <p>
+                CalmPage được xây dựng từ mong muốn kết nối những người yêu sách
+                với các sản phẩm văn phòng phẩm thiết thực trong cuộc sống hằng ngày.
+                Từ những trang sách truyền cảm hứng đến cây bút, quyển vở quen thuộc,
+                mỗi sản phẩm đều góp phần lưu giữ ý tưởng và tạo nên những trải nghiệm
+                học tập, làm việc tích cực.
+            </p>
+
+            <p>
+                Chúng tôi không chỉ muốn mang đến sản phẩm để lựa chọn,
+                mà còn mong CalmPage trở thành một góc nhỏ giúp bạn tìm được
+                cảm hứng qua từng trang sách và từng nét viết.
+            </p>
+        </section>
+
+        <!-- Sản phẩm -->
+        <section class="about-khu-vuc">
+            <h2 class="about-tieu-de">
+                🛍️ Sản phẩm của chúng tôi
+            </h2>
+
+            <p>CalmPage tập trung vào hai nhóm sản phẩm chính:</p>
+
+            <div class="about-grid">
+
+                <article class="about-the">
+                    <div class="about-bieu-tuong">📚</div>
+
+                    <h3>Sách và truyện</h3>
+
+                    <p>
+                        Gồm các tác phẩm văn học, tiểu thuyết, truyện ngắn
+                        và nhiều đầu sách thuộc các chủ đề khác nhau
+                        dành cho người yêu đọc sách.
+                    </p>
+                </article>
+
+                <article class="about-the">
+                    <div class="about-bieu-tuong">✏️</div>
+
+                    <h3>Văn phòng phẩm</h3>
+
+                    <p>
+                        Gồm bút, vở, giấy nhớ, thước, dụng cụ học tập
+                        và các vật dụng hỗ trợ học tập, làm việc đến từ
+                        các thương hiệu như Campus, Deli, Muji,
+                        Thiên Long và nhiều nhãn hàng khác.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Giá trị cốt lõi -->
+        <section class="about-khu-vuc">
+            <h2 class="about-tieu-de">
+                🌿 Giá trị cốt lõi
+            </h2>
+
+            <div class="about-grid">
+
+                <article class="about-the">
+                    <div class="about-bieu-tuong">⭐</div>
+                    <h3>Chất lượng</h3>
+                    <p>
+                        Chú trọng lựa chọn sản phẩm có chất lượng
+                        và thông tin rõ ràng.
+                    </p>
+                </article>
+
+                <article class="about-the">
+                    <div class="about-bieu-tuong">🤝</div>
+                    <h3>Uy tín</h3>
+                    <p>
+                        Đặt sự minh bạch và trách nhiệm
+                        trong quá trình phục vụ lên hàng đầu.
+                    </p>
+                </article>
+
+                <article class="about-the">
+                    <div class="about-bieu-tuong">🏷️</div>
+                    <h3>Giá cả ổn định</h3>
+                    <p>
+                        Hướng đến mức giá hợp lý,
+                        giúp khách hàng dễ dàng lựa chọn.
+                    </p>
+                </article>
+
+                <article class="about-the">
+                    <div class="about-bieu-tuong">💚</div>
+                    <h3>Trải nghiệm khách hàng</h3>
+                    <p>
+                        Không ngừng cải thiện cách giới thiệu sản phẩm
+                        và trải nghiệm mua sắm.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Cam kết -->
+        <section class="about-cam-ket">
+            <h2>Cam kết của CalmPage</h2>
+
+            <p>
+                Chúng tôi hướng đến việc cung cấp sách, truyện và văn phòng phẩm
+                phù hợp với nhu cầu của khách hàng; trình bày thông tin sản phẩm
+                rõ ràng, duy trì giá cả hợp lý và luôn đặt trải nghiệm mua sắm
+                thân thiện làm mục tiêu phát triển.
+            </p>
+        </section>
+
+        <!-- Liên hệ -->
+        <section class="about-khu-vuc about-lien-he">
+            <h2 class="about-tieu-de">
+                📩 Kết nối với CalmPage
+            </h2>
+
+            <p>
+                Bạn cần tư vấn hoặc muốn tìm hiểu thêm về sản phẩm?
+                Hãy liên hệ với chúng tôi.
+            </p>
+
+            <p>
+                <strong>Email:</strong> contact@calmpage.vn
+            </p>
+
+            <p>
+                <strong>Khu vực:</strong> TP. Hồ Chí Minh
+            </p>
+
+            <a href="contact.html">Đến trang liên hệ</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="chan-trang">
+        <p>
+            <b>CalmPage</b> - Góc văn phòng phẩm và sách chọn lọc
+        </p>
+
+        <p>
+            Địa chỉ: TP. Hồ Chí Minh |
+            Liên hệ: contact@calmpage.vn
+        </p>
+    </footer>
+
+    <!-- Đăng nhập / đăng ký -->
+    <div id="hop-thoai-auth" class="lop-phu-modal">
+
+        <div class="khung-form">
+
+            <span id="nut-dong-modal" class="nut-dong">
+                &times;
+            </span>
+
+            <h2 id="tieu-de-form">Đăng nhập</h2>
+
+            <form id="form-tai-khoan">
+
+                <div class="nhom-nhap" id="nhom-ten"
+                     style="display: none;">
+                    <label>Tên hiển thị:</label>
+                    <input type="text" id="nhap-ten"
+                           placeholder="VD: Tấn Đạt">
+                </div>
+
+                <div class="nhom-nhap">
+                    <label>Tên đăng nhập:</label>
+                    <input type="text" id="nhap-user"
+                           required placeholder="Nhập tài khoản...">
+                </div>
+
+                <div class="nhom-nhap">
+                    <label>Mật khẩu:</label>
+                    <input type="password" id="nhap-pass"
+                           required placeholder="Nhập mật khẩu...">
+                </div>
+
+                <button type="submit"
+                        class="nut-xac-nhan"
+                        id="nut-gui-form">
+                    Đăng nhập
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>
