@@ -12,12 +12,17 @@ let cheDoHienTai = "dang-nhap";
 function moForm(chedo) {
     cheDoHienTai = chedo;
     hopThoai.style.display = "flex";
+    const dongChuyen = document.getElementById("chuyen-che-do-auth");
 
     if (chedo === "dang-ky"){
         tieudeform.innerText = "Đăng ký tài khoản";
         nhomten.style.display = "block";
         document.getElementById("nhap-ten").required = true;
         nutguiform.innerText ="Đăng ký";
+        if (dongChuyen){
+            dongChuyen.style.display = "block";
+            dongChuyen.innerHTML = 'Đã có tài khoản? <a href="#" onclick="moForm(\'dang-nhap\'); return false;"> Đăng nhập</a>';
+        }
     }
     else if (chedo === "sua-info"){
         const userCu = JSON.parse(localStorage.getItem("userHienTai"));
@@ -29,12 +34,20 @@ function moForm(chedo) {
         nhomten.style.display = "block";
         document.getElementById("nhap-ten").required = true;
         nutguiform.innerText = "Lưu thay đổi";
+        if (dongChuyen){
+            dongChuyen.style.display = "none";
+        }
     }
     else {
         tieudeform.innerText = "Đăng nhập";
         nhomten.style.display = "none";
         document.getElementById("nhap-ten"). required = false;
         nutguiform.innerText = "Đăng nhập";
+
+        if (dongChuyen) {
+            dongChuyen.style.display ="block";
+            dongChuyen.innerHTML = 'Chưa có tài khoản? <a href="#" onclick="moForm(\'dang-ky\'); return false;"> Đăng ký ngay </a>';
+        }
     }
 }
 nutDong.onclick = function()
@@ -393,8 +406,36 @@ function datHangCalmPage() {
     const gioHang = JSON.parse(localStorage.getItem('gioHangCalmPage')) || [];
     if (gioHang.length === 0) return;
 
+    const userHienTai = JSON.parse(localStorage.getItem('userHienTai'));
+
+    if (!userHienTai) {
+        alert('Bạn cần đăng nhập tài khoản trước khi thanh toán nhé!');
+        dongGioHang(null, true);
+        if (typeof moForm === 'function') {
+            moForm('dang-nhap');
+        }
+        return;
+    }
+
+    const tenKhach = userHienTai.ten || userHienTai.user || 'bạn';
     alert('🎉 Đặt hàng thành công! Cảm ơn bạn đã mua sắm tại CalmPage.');
     localStorage.removeItem('gioHangCalmPage');
     capNhatSoLuongTrenIcon();
     dongGioHang(null, true);
 }
+//Xáo trộn sp mỗi lần mở trang products 
+function xaoTronSanPham() {
+    const luoiSp = document.getElementById('danh-sach-sp');
+    if (!luoiSp) return; 
+
+    const danhSachThe = Array.from(luoiSp.querySelectorAll('.o-sp'));
+
+    for (let i = danhSachThe.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [danhSachThe[i], danhSachThe[j]] = [danhSachThe[j], danhSachThe[i]];
+    }
+
+    danhSachThe.forEach(the => luoiSp.appendChild(the));
+}
+
+document.addEventListener('DOMContentLoaded', xaoTronSanPham);

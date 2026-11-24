@@ -225,6 +225,23 @@ body{
     border-radius: 20px;
 }
 
+.dong-chuyen-auth {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: var(--xanh-dam);
+}
+
+.dong-chuyen-auth a {
+    color: #2b7a62;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.dong-chuyen-auth a:hover {
+    text-decoration: underline;
+}
+
 /* Slogan & nút Shop now ở giữa */
 .noi-dung-chinh {
     position: relative;
