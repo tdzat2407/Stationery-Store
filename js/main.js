@@ -8,25 +8,43 @@ const tenhienthi = document.getElementById("ten-hien-thi");
 const menuUser = document.getElementById("menu-user");
 
 let cheDoHienTai = "dang-nhap";
-
 function moForm(chedo) {
     cheDoHienTai = chedo;
     hopThoai.style.display = "flex";
     const dongChuyen = document.getElementById("chuyen-che-do-auth");
+    const labelTen = nhomten.querySelector("label");
+    const labelPass = document.getElementById("nhap-pass").previousElementSibling;
 
-    if (chedo === "dang-ky"){
+    if (labelTen) labelTen.innerText = "Tên hiển thị:";
+    if (labelPass) labelPass.innerText = "Mật khẩu:";
+
+    if (chedo === "dang-ky") {
         tieudeform.innerText = "Đăng ký tài khoản";
         nhomten.style.display = "block";
         document.getElementById("nhap-ten").required = true;
-        nutguiform.innerText ="Đăng ký";
-        if (dongChuyen){
+        nutguiform.innerText = "Đăng ký";
+
+        if (dongChuyen) {
             dongChuyen.style.display = "block";
-            dongChuyen.innerHTML = 'Đã có tài khoản? <a href="#" onclick="moForm(\'dang-nhap\'); return false;"> Đăng nhập</a>';
+            dongChuyen.innerHTML = 'Đã có tài khoản? <a href="#" onclick="moForm(\'dang-nhap\'); return false;">Đăng nhập</a>';
         }
     }
-    else if (chedo === "sua-info"){
+    else if (chedo === "quen-mat-khau") {
+        tieudeform.innerText = "Khôi phục mật khẩu";
+        nhomten.style.display = "block";
+        document.getElementById("nhap-ten").required = true;
+        if (labelTen) labelTen.innerText = "Tên hiển thị (để xác minh):";
+        if (labelPass) labelPass.innerText = "Mật khẩu mới:";
+        nutguiform.innerText = "Đặt lại mật khẩu";
+
+        if (dongChuyen) {
+            dongChuyen.style.display = "block";
+            dongChuyen.innerHTML = 'Nhớ ra mật khẩu rồi sao? <a href="#" onclick="moForm(\'dang-nhap\'); return false;">Quay lại đăng nhập</a>';
+        }
+    }
+    else if (chedo === "sua-info") {
         const userCu = JSON.parse(localStorage.getItem("userHienTai"));
-        if (userCu){
+        if (userCu) {
             document.getElementById("nhap-ten").value = userCu.ten;
             document.getElementById("nhap-user").value = userCu.user;
         }
@@ -34,19 +52,23 @@ function moForm(chedo) {
         nhomten.style.display = "block";
         document.getElementById("nhap-ten").required = true;
         nutguiform.innerText = "Lưu thay đổi";
-        if (dongChuyen){
+
+        if (dongChuyen) {
             dongChuyen.style.display = "none";
         }
     }
     else {
         tieudeform.innerText = "Đăng nhập";
         nhomten.style.display = "none";
-        document.getElementById("nhap-ten"). required = false;
+        document.getElementById("nhap-ten").required = false;
         nutguiform.innerText = "Đăng nhập";
 
         if (dongChuyen) {
-            dongChuyen.style.display ="block";
-            dongChuyen.innerHTML = 'Chưa có tài khoản? <a href="#" onclick="moForm(\'dang-ky\'); return false;"> Đăng ký ngay </a>';
+            dongChuyen.style.display = "block";
+            dongChuyen.innerHTML = `
+                <a href="#" onclick="moForm('quen-mat-khau'); return false;" style="display:block; margin-bottom:8px; font-weight:500;">Quên mật khẩu?</a>
+                Chưa có tài khoản? <a href="#" onclick="moForm('dang-ky'); return false;">Đăng ký ngay</a>
+            `;
         }
     }
 }
@@ -89,26 +111,25 @@ formtaikhoan.onsubmit = function(e) {
     const ten = document.getElementById("nhap-ten").value.trim();
     const user = document.getElementById("nhap-user").value.trim();
     const pass = document.getElementById("nhap-pass").value.trim();
+
     if (cheDoHienTai === "dang-ky") {
         const taiKhoanMoi = { ten: ten, user: user, pass: pass };
         localStorage.setItem("taiKhoanDaLuu", JSON.stringify(taiKhoanMoi));
         localStorage.setItem("userHienTai", JSON.stringify(taiKhoanMoi));
         alert("Đăng ký thành công!");
     }
-    else if (cheDoHienTai=== "dang-nhap"){
+    else if (cheDoHienTai === "dang-nhap") {
         const taiKhoanGoc = JSON.parse(localStorage.getItem("taiKhoanDaLuu"));
-        if (taiKhoanGoc && taiKhoanGoc.user === user && taiKhoanGoc.pass === pass)
-        {
-            localStorage.setItem ("userHienTai", JSON.stringify(taiKhoanGoc));
-            alert ("Đăng nhập thành công!");
+        if (taiKhoanGoc && taiKhoanGoc.user === user && taiKhoanGoc.pass === pass) {
+            localStorage.setItem("userHienTai", JSON.stringify(taiKhoanGoc));
+            alert("Đăng nhập thành công!");
         }
-        else 
-        {
+        else {
             alert("Tên đăng nhập hoặc mật khẩu sai (bạn nhớ Đăng ký trước nhé)!");
             return;
         }
     }
-    else if (cheDoHienTai === "sua-info"){
+    else if (cheDoHienTai === "sua-info") {
         const userCu = JSON.parse(localStorage.getItem("userHienTai"));
         userCu.ten = ten;
         userCu.user = user;
@@ -117,12 +138,43 @@ formtaikhoan.onsubmit = function(e) {
         localStorage.setItem("userHienTai", JSON.stringify(userCu));
         alert("Đã cập nhật thông tin!");
     }
+    else if (cheDoHienTai === "quen-mat-khau") {
+        const taiKhoanGoc = JSON.parse(localStorage.getItem("taiKhoanDaLuu"));
+        if (taiKhoanGoc && taiKhoanGoc.user === user && taiKhoanGoc.ten.toLowerCase() === ten.toLowerCase()) {
+            taiKhoanGoc.pass = pass; // Cập nhật mật khẩu mới
+            localStorage.setItem("taiKhoanDaLuu", JSON.stringify(taiKhoanGoc));
+            alert("Đặt lại mật khẩu thành công! Mời bạn đăng nhập bằng mật khẩu mới.");
+            formtaikhoan.reset();
+            moForm("dang-nhap");
+            return;
+        }
+        else {
+            alert("Tên đăng nhập hoặc Tên hiển thị xác minh không khớp!");
+            return;
+        }
+    }
+
     formtaikhoan.reset();
     hopThoai.style.display = "none";
     capNhatgiaodienUser();
 };
-capNhatgiaodienUser();
 
+//Xáo trộn sp mỗi lần mở trang products 
+function xaoTronSanPham() {
+    const luoiSp = document.getElementById('danh-sach-sp');
+    if (!luoiSp) return; 
+
+    const danhSachThe = Array.from(luoiSp.querySelectorAll('.o-sp'));
+
+    for (let i = danhSachThe.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [danhSachThe[i], danhSachThe[j]] = [danhSachThe[j], danhSachThe[i]];
+    }
+
+    danhSachThe.forEach(the => luoiSp.appendChild(the));
+}
+
+document.addEventListener('DOMContentLoaded', xaoTronSanPham);
 // chia phần products thành pages cho products.html
 const SP_MOI_TRANG = 20;
 let trangHienTai = 1;
@@ -423,19 +475,3 @@ function datHangCalmPage() {
     capNhatSoLuongTrenIcon();
     dongGioHang(null, true);
 }
-//Xáo trộn sp mỗi lần mở trang products 
-function xaoTronSanPham() {
-    const luoiSp = document.getElementById('danh-sach-sp');
-    if (!luoiSp) return; 
-
-    const danhSachThe = Array.from(luoiSp.querySelectorAll('.o-sp'));
-
-    for (let i = danhSachThe.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [danhSachThe[i], danhSachThe[j]] = [danhSachThe[j], danhSachThe[i]];
-    }
-
-    danhSachThe.forEach(the => luoiSp.appendChild(the));
-}
-
-document.addEventListener('DOMContentLoaded', xaoTronSanPham);

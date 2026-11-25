@@ -62,6 +62,7 @@ body{
     gap: 22px;
     padding: 12px;
     z-index: 1;
+    pointer-events: none;
 }
 
 .o-nen {
@@ -76,33 +77,9 @@ body{
     height: 100%;
     object-fit: cover;
     opacity: 0.35; /* Làm mờ nhẹ mặc định để chữ slogan ở giữa dễ đọc */
-    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Thẻ tên sản phẩm ẩn sẵn ở đáy ô vuông */
-.ten-sp-nen {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--tim-tu-dinh-huong);
-    color: #FFFFFF;
-    font-size: 13px;
-    padding: 6px 10px;
-    text-align: center;
-    transform: translateY(100%); /* Giấu xuống dưới khung */
-    transition: transform 0.3s ease;
-}
 
-/* HIỆU ỨNG KHI RÊ CHUỘT VÀO TỪNG Ô VUÔNG */
-.o-nen:hover img {
-    opacity: 1; /* Sáng rõ ảnh lên */
-    transform: scale(1.08); /* Phóng to nhẹ */
-}
-
-.o-nen:hover .ten-sp-nen {
-    transform: translateY(0); /* Trượt tên sản phẩm lên */
-}
 
 /* --- CÁC THÀNH PHẦN NỔI LÊN TRÊN (z-index: 2) --- */
 #thanh-tren,
@@ -342,7 +319,7 @@ body{
 .hang-5-sp {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 55px;
+    gap: 35px;
 }
 
 .o-sp {
@@ -352,6 +329,11 @@ body{
     padding: 12px;
     text-align: center;
     transition: 0.3s;
+}
+.hang-5-sp .o-sp {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .o-sp:hover {
@@ -463,6 +445,33 @@ body{
         grid-template-columns: 1fr;
         gap: 20px;
     }
+}
+/* --- giá sốc */
+.khung-gia-deal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 4px 0;
+}
+
+.gia-goc {
+    font-size: 13px;
+    color: #8c9e9e;
+    text-decoration: line-through;
+}
+
+.mui-ten-deal {
+    font-size: 12px;
+    color: var(--do-ca-chua);
+    font-weight: bold;
+}
+
+.gia.gia-giam {
+    color: var(--do-ca-chua);
+    font-size: 15px;
+    font-weight: 800;
 }
 
 /* --- POPUP ĐĂNG NHẬP / ĐĂNG KÝ --- */
