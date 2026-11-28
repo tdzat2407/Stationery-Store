@@ -530,3 +530,12 @@ if (formLienHe) {
         }
     });
 }
+
+tenhienthi.addEventListener('click', function (e) {
+  e.stopPropagation();
+  tenhienthi.closest('.hop-tai-khoan').classList.toggle('mo');
+});
+document.addEventListener('click', function () {
+  const hop = document.querySelector('.hop-tai-khoan');
+  if (hop) hop.classList.remove('mo');
+});
