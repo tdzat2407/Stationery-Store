@@ -62,6 +62,7 @@ body{
     gap: 22px;
     padding: 12px;
     z-index: 1;
+    pointer-events: none;
 }
 
 .o-nen {
@@ -76,32 +77,6 @@ body{
     height: 100%;
     object-fit: cover;
     opacity: 0.35; /* Làm mờ nhẹ mặc định để chữ slogan ở giữa dễ đọc */
-    transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-/* Thẻ tên sản phẩm ẩn sẵn ở đáy ô vuông */
-.ten-sp-nen {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--tim-tu-dinh-huong);
-    color: #FFFFFF;
-    font-size: 13px;
-    padding: 6px 10px;
-    text-align: center;
-    transform: translateY(100%); /* Giấu xuống dưới khung */
-    transition: transform 0.3s ease;
-}
-
-/* HIỆU ỨNG KHI RÊ CHUỘT VÀO TỪNG Ô VUÔNG */
-.o-nen:hover img {
-    opacity: 1; /* Sáng rõ ảnh lên */
-    transform: scale(1.08); /* Phóng to nhẹ */
-}
-
-.o-nen:hover .ten-sp-nen {
-    transform: translateY(0); /* Trượt tên sản phẩm lên */
 }
 
 /* --- CÁC THÀNH PHẦN NỔI LÊN TRÊN (z-index: 2) --- */
@@ -122,21 +97,28 @@ body{
 /* Bật lại khả năng bấm chuột cho riêng nút Shop now */
 .nut-shop-now {
     pointer-events: auto;
-
     display: inline-block;
     text-decoration: none;
-    color: var(--cam-dao);
-    background-color: var(--nen-trang);
-    font-weight: bold;
-    padding: 10px 28px;
-    border: 2px solid var(--cam-dao);
-    border-radius: 25px;
-    transition: 0.3s;
-}
-.nut-shop-now:hover {
-    background-color: var(--cam-dao);
+    background-color: #27705a;
     color: #FFFFFF;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    padding: 12px 34px;
+    border: 2px solid #27705a;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(39, 112, 90, 0.28);
+    transition: all 0.25s ease;
 }
+
+.nut-shop-now:hover {
+    background-color: var(--xanh-pastel);
+    border-color: var(--xanh-pastel);
+    color: var(--xanh-dam);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(110, 226, 184, 0.45);
+}
+
 /* Header trên cùng */
 #thanh-tren {
     display: flex;
@@ -145,9 +127,10 @@ body{
 }
 
 .ten-shop {
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 1px;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #27705a;
 }
 /* Khung bọc nút Xin chào */
 .hop-tai-khoan {
@@ -223,6 +206,23 @@ body{
     background-color: #FFFFFF;
     padding: 4px 12px;
     border-radius: 20px;
+}
+
+.dong-chuyen-auth {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: var(--xanh-dam);
+}
+
+.dong-chuyen-auth a {
+    color: #2b7a62;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.dong-chuyen-auth a:hover {
+    text-decoration: underline;
 }
 
 /* Slogan & nút Shop now ở giữa */
@@ -325,7 +325,7 @@ body{
 .hang-5-sp {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 55px;
+    gap: 35px;
 }
 
 .o-sp {
@@ -335,6 +335,11 @@ body{
     padding: 12px;
     text-align: center;
     transition: 0.3s;
+}
+.hang-5-sp .o-sp {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .o-sp:hover {
@@ -389,12 +394,16 @@ body{
 }
 
 .chan-trang-luoi {
-    max-width: 900px;
+    max-width: 1020px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1.4fr 1fr 1.4fr;
     gap: 32px;
     text-align: left;
+}
+
+.chan-cot:first-child {
+    margin-right: 80px;   
 }
 
 .chan-cot h4 {
@@ -446,6 +455,33 @@ body{
         grid-template-columns: 1fr;
         gap: 20px;
     }
+}
+/* --- giá sốc */
+.khung-gia-deal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 4px 0;
+}
+
+.gia-goc {
+    font-size: 13px;
+    color: #8c9e9e;
+    text-decoration: line-through;
+}
+
+.mui-ten-deal {
+    font-size: 12px;
+    color: var(--do-ca-chua);
+    font-weight: bold;
+}
+
+.gia.gia-giam {
+    color: var(--do-ca-chua);
+    font-size: 15px;
+    font-weight: 800;
 }
 
 /* --- POPUP ĐĂNG NHẬP / ĐĂNG KÝ --- */
@@ -911,11 +947,11 @@ body{
 }
 /*trang contact */
 #contact-us {
-    height : calc(25 - 25);
+    min-height: 220px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 25px 40px;
+    padding: 25px 40px 35px;
     position: relative;
     overflow: hidden;
     background-color: #ffffff;
@@ -927,7 +963,7 @@ body{
     margin: 20px auto 0;
     padding: 10px 26px;
     background-color: #333333;
-    color: #ffffff;
+    color: var(--off-white);
     text-decoration: none;
     font-weight: 600;
     font-size: 15px;
@@ -941,8 +977,8 @@ body{
     margin: 0 auto;
     padding: 40px 24px 72px;
     display: grid;
-    grid-template-columns: 1.75fr 0.85fr;
-    gap: 72px;
+    grid-template-columns: 1.65fr 1fr;
+    gap: 64px;
     align-items: start;
 }
 
@@ -992,7 +1028,7 @@ body{
     max-width: 100%;
     box-sizing: border-box;
     border: 1.5px solid var(--xanh-dam);
-    background-color: var(--nen-trang);
+    background-color: var(--off-white);
     color: var(--xanh-dam);
     font-size: 14px;
     outline: none;
@@ -1000,23 +1036,45 @@ body{
 }
 
 .contact-form input[type="text"],
-.contact-form input[type="email"] {
+.contact-form input[type="email"],
+.contact-form select {
     height: 44px;
     padding: 0 18px;
     border-radius: 999px;
 }
-
+.contact-form select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 42px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233b4a4a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+}
+.contact-form select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 42px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233b4a4a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+}
+.contact-form {
+    cursor: pointer;
+}
 .contact-form textarea {
     padding: 16px 18px;
     border-radius: 20px;
     resize: vertical;
-    min-height: 170px;
+    min-height: 160px;
 }
 
 .contact-form input:focus,
+.contact-form select:focus,
 .contact-form textarea:focus {
     border-color: var(--xanh-dam);
-    background-color: #ffffff;
+    background-color: var(--off-white);
     box-shadow: 0 0 0 3px rgba(59, 74, 74, 0.12);
 }
 
@@ -1046,7 +1104,7 @@ body{
     color: var(--xanh-dam);
     border: none;
     border-radius: 999px;
-    padding: 12px 26px;
+    padding: 12px 28px;
     font-size: 12.5px;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -1074,6 +1132,13 @@ body{
     font-size: 17px;
     font-weight: 700;
     color: var(--xanh-dam);
+}
+
+.info-dong {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--xanh-dam);
+    margin-bottom: 6px;
 }
 
 .info-email {
@@ -1106,6 +1171,18 @@ body{
 .socials a:hover {
     opacity: 0.72;
 }
+.map-embed-wrap {
+    margin-top: 10px;
+}
+
+.map-embed-wrap iframe {
+    width: 100%;
+    height: 205px;
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: block;
+}
 
 @media (max-width: 820px) {
     .contact-container {
@@ -1117,6 +1194,8 @@ body{
         grid-template-columns: 1fr;
     }
 }
+
+
 
 #trang-about {
     max-width: 1200px;

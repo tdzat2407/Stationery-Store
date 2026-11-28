@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Dancing+Script:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
-    <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -27,7 +26,7 @@
                     <span class="tai-khoan" id="ten-hien-thi">👤 Xin chào ▾</span>
                     <div class="menu-xo-xuong" id="menu-user">
                         <a href='#' onclick="moForm('dang-nhap'); return false;">Đăng nhập</a>
-                        <a href='#' onclick="moForm('dang-ky'); return false;s">Đăng ký</a>
+                        <a href='#' onclick="moForm('dang-ky'); return false;">Đăng ký</a>
                     </div>
                 </div>
                 <a href="#" class="gio-hang" onclick="moGioHang(); return false;">
@@ -36,7 +35,7 @@
             </div>
         </header>
         <div class="noi-dung-chinh">
-            <h1>Contact Us</h1>
+            <h1>Liên hệ với CalmPage</h1>
         </div>
 </section>
 
@@ -57,6 +56,14 @@
           <input type="email" name="email" placeholder="Email*" aria-label="Email" required />
         </div>
 
+        <select name="chu_de" aria-label="Chủ đề liên hệ" required>
+          <option value="" disabled selected>Chọn chủ đề cần hỗ trợ*</option>
+          <option value="tu-van">Tư vấn văn phòng phẩm & sách</option>
+          <option value="don-hang">Kiểm tra & hỗ trợ đơn hàng</option>
+          <option value="gop-y">Góp ý & phản hồi dịch vụ</option>
+          <option value="khac">Vấn đề khác</option>
+        </select>
+
         <textarea name="message" placeholder="Nhập nội dung*" aria-label="Message" rows="6" required></textarea>
 
         <label class="save-info-label">
@@ -71,11 +78,13 @@
     <aside class="contact-infos">
       <div class="infos">
         <h3>Thông tin liên hệ</h3>
-        <a href="mailto:contact@calmpage.vn" class="info-email">contact@calmpage.vn</a>
+        <p class="info-dong">📧<a href="mailto:contact@calmpage.vn" class="info-email">contact@calmpage.vn</a></p>
+        <p class="info-dong">📞<a href="tel:0909123456" class="info-email">0909 123 456</a></p>
+        <p class="info-dong">🕒 08:00 - 21:00 (Thứ 2 - Chủ nhật)</p>
       </div>
 
       <div class="infos">
-        <h3>Social Media</h3>
+        <h3>Kênh kết nối</h3>
         <div class="socials">
           <a href="https://github.com/tdzat2407/Stationery-Store" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <img src="img/icons/GitHub_Invertocat_White.png" alt="GitHub" width="18" height="18" />
@@ -85,13 +94,13 @@
 
       <div class="infos">
             <h3>Địa chỉ</h3>
-            <p>280 An Dương Vương, Phường Chợ Quán, TP. Hồ Chí Minh</p> <br>
+            <p>An Dương Vương, Phường Chợ Quán, TP. Hồ Chí Minh</p> <br>
             <div class="map-embed-wrap">
                 <iframe
                     src="https://maps.google.com/maps?q=280%20An%20Duong%20Vuong%2C%20Phuong%20Cho%20Quan%2C%20Ho%20Chi%20Minh%20City&t=&z=16&ie=UTF8&iwloc=&output=embed"
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
-                    title="Map"
+                    title="Bản đồ CalmPage"
                     allowfullscreen>
                 </iframe>
             </div>
@@ -122,6 +131,10 @@
                </div>
 
                <button type="submit" class="nut-xac-nhan" id="nut-gui-form">Đăng nhập</button>
+
+                <p class="dong-chuyen-auth" id="chuyen-che-do-auth">
+                   Chưa có tài khoản? <a href="#" onclick="moForm('dang-ky'); return false;">Đăng ký ngay</a>
+               </p>
            </form>
        </div>
    </div>
@@ -222,23 +235,25 @@
         <div class="chan-trang-luoi">
             <div class="chan-cot">
                 <h4>CalmPage</h4>
-                <p>Không gian dành cho những trang sách và nguồn cảm hứng sáng tạo.</p>
+                <p>Mang đến những câu chuyện thú vị cùng các sản phẩm văn phòng phẩm chất lượng.</p>
             </div>
 
             <div class="chan-cot">
                 <h4>Các sản phẩm</h4>
-                <p>Sách và truyện</p>
-                <p>Thiên Long</p>
-                <p>Campus</p>
-                <p>Muji</p>
-                <p>Deli</p>
+                <ul>
+                    <li>Sách và truyện</li>
+                    <li>Thiên Long</li>
+                    <li>Campus</li>
+                    <li>Muji</li>
+                    <li>Deli</li>
+                </ul>
             </div>
 
             <div class="chan-cot">
                 <h4>Liên hệ</h4>
                 <p class="co-icon">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-                    <span>280 An Dương Vương, Phường Chợ Quán, TP. Hồ Chí Minh</span>
+                    <span>An Dương Vương, Phường Chợ Quán, TP. Hồ Chí Minh</span>
                 </p>
                 <a class="co-icon" href="mailto:contact@calmpage.vn">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -270,6 +285,7 @@
         </div>
     </div>
 </div>
+<script src="js/main.js" defer></script>
 </body>
 
 </html>

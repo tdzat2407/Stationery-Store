@@ -45,7 +45,7 @@
             <h1>Chào mừng đến với CalmPage</h1>
             <p>
                 CalmPage là cửa hàng trực tuyến chuyên giới thiệu và cung cấp
-                sách, truyện cùng các sản phẩm văn phòng phẩm.
+                sách cùng các sản phẩm văn phòng phẩm.
                 Chúng tôi mong muốn tạo nên một không gian mua sắm thân thiện,
                 nơi bạn có thể tìm thấy những cuốn sách yêu thích và các dụng cụ
                 hữu ích cho học tập, làm việc và sáng tạo.
@@ -82,7 +82,7 @@
                 <article class="about-the">
                     <div class="about-bieu-tuong">📚</div>
 
-                    <h3>Sách và truyện</h3>
+                    <h3>Sách</h3>
                     <p>
                         Gồm các tác phẩm văn học, tiểu thuyết, truyện ngắn
                         và nhiều đầu sách thuộc các chủ đề khác nhau
@@ -272,23 +272,25 @@
         <div class="chan-trang-luoi">
             <div class="chan-cot">
                 <h4>CalmPage</h4>
-                <p>Không gian dành cho những trang sách và nguồn cảm hứng sáng tạo.</p>
+                <p>Mang đến những câu chuyện thú vị cùng các sản phẩm văn phòng phẩm chất lượng.</p>
             </div>
 
-            <div class="chan-cot">
+           <div class="chan-cot">
                 <h4>Các sản phẩm</h4>
-                <p>Sách và truyện</p>
-                <p>Thiên Long</p>
-                <p>Campus</p>
-                <p>Muji</p>
-                <p>Deli</p>
+                <ul>
+                    <li>Sách và truyện</li>
+                    <li>Thiên Long</li>
+                    <li>Campus</li>
+                    <li>Muji</li>
+                    <li>Deli</li>
+                </ul>
             </div>
-
+            
             <div class="chan-cot">
                 <h4>Liên hệ</h4>
                 <p class="co-icon">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-                    <span>280 An Dương Vương, Phường Chợ Quán, TP. Hồ Chí Minh</span>
+                    <span>An Dương Vương, Phường Chợ Quán, TP. Hồ Chí Minh</span>
                 </p>
                 <a class="co-icon" href="mailto:contact@calmpage.vn">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -338,6 +340,10 @@
                         id="nut-gui-form">
                     Đăng nhập
                 </button>
+
+                 <p class="dong-chuyen-auth" id="chuyen-che-do-auth">
+                   Chưa có tài khoản? <a href="#" onclick="moForm('dang-ky'); return false;">Đăng ký ngay</a>
+               </p>
             </form>
         </div>
     </div>
@@ -362,6 +368,6 @@
     </div>
 </div>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
