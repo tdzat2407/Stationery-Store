@@ -8,6 +8,7 @@ const tenhienthi = document.getElementById("ten-hien-thi");
 const menuUser = document.getElementById("menu-user");
 
 let cheDoHienTai = "dang-nhap";
+let dangChoThanhToan = false;
 function moForm(chedo) {
     cheDoHienTai = chedo;
     hopThoai.style.display = "flex";
@@ -75,10 +76,12 @@ function moForm(chedo) {
 nutDong.onclick = function()
 {
     hopThoai.style.display = "none";
+    dangChoThanhToan = false;
 }
 window.onclick = function(e) {
     if (e.target === hopThoai) {
         hopThoai.style.display = "none";
+        dangChoThanhToan = false;
     }
 };
 
@@ -157,7 +160,14 @@ formtaikhoan.onsubmit = function(e) {
     formtaikhoan.reset();
     hopThoai.style.display = "none";
     capNhatgiaodienUser();
+
+    if(dangChoThanhToan){
+        dangChoThanhToan = false;
+        moGioHang();
+    }
 };
+  capNhatgiaodienUser();
+    window.addEventListener("pageshow", capNhatgiaodienUser);
 
 //Xáo trộn sp mỗi lần mở trang products 
 function xaoTronSanPham() {
@@ -463,6 +473,7 @@ function datHangCalmPage() {
     if (!userHienTai) {
         alert('Bạn cần đăng nhập tài khoản trước khi thanh toán nhé!');
         dongGioHang(null, true);
+        dangChoThanhToan = true;
         if (typeof moForm === 'function') {
             moForm('dang-nhap');
         }
@@ -474,4 +485,48 @@ function datHangCalmPage() {
     localStorage.removeItem('gioHangCalmPage');
     capNhatSoLuongTrenIcon();
     dongGioHang(null, true);
+}
+// XỬ LÝ FORM LIÊN HỆ TRÊN TRANG CONTACT.HTML
+
+const formLienHe = document.querySelector('.contact-form');
+
+if (formLienHe) {
+    const oHoTen = formLienHe.querySelector('input[name="Tên"]');
+    const oEmail = formLienHe.querySelector('input[name="email"]');
+    const oNoiDung = formLienHe.querySelector('textarea[name="message"]');
+    const hopLuuThongTin = formLienHe.querySelector('input[name="save_info"]');
+
+    // Tự động điền lại Họ tên & Email nếu lần trước khách đã tick "Lưu thông tin"
+    const thongTinDaLuu = JSON.parse(localStorage.getItem('thongTinLienHeCalmPage'));
+    if (thongTinDaLuu) {
+        if (oHoTen) oHoTen.value = thongTinDaLuu.ten || '';
+        if (oEmail) oEmail.value = thongTinDaLuu.email || '';
+        if (hopLuuThongTin) hopLuuThongTin.checked = true;
+    }
+
+    formLienHe.addEventListener('submit', function (e) {
+        e.preventDefault(); // Chặn trình duyệt gửi POST gây lỗi 405
+
+        const tenGui = oHoTen ? oHoTen.value.trim() : '';
+        const emailGui = oEmail ? oEmail.value.trim() : '';
+
+        // Xử lý ô tick lưu thông tin cho lần sau
+        if (hopLuuThongTin && hopLuuThongTin.checked) {
+            localStorage.setItem('thongTinLienHeCalmPage', JSON.stringify({
+                ten: tenGui,
+                email: emailGui
+            }));
+        } else {
+            localStorage.removeItem('thongTinLienHeCalmPage');
+        }
+
+        alert(`Cảm ơn ${tenGui || 'bạn'}! CalmPage đã ghi nhận ý kiến của bạn và sẽ phản hồi sớm nhất.`);
+
+        // Xóa nội dung vừa nhập (nếu khách có tick lưu thông tin thì giữ lại tên & email)
+        if (hopLuuThongTin && hopLuuThongTin.checked) {
+            if (oNoiDung) oNoiDung.value = '';
+        } else {
+            formLienHe.reset();
+        }
+    });
 }
